@@ -4,7 +4,6 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Список iPhone
-    link(rel="stylesheet", href="/stylesheets/style.css") 
   body
     h1 Список доступних iPhone
     if iphones.length > 0
@@ -15,6 +14,7 @@ html(lang="en")
             p= `Ємність пам'яті: ${iphone.storageCapacity}`
             p= `Колір: ${iphone.color}`
             p= `Ціна: $${iphone.price}`
+            p ID: #{iphone._id}
             if iphone.inStock
               p В наявності
             else

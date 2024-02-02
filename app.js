@@ -9,9 +9,16 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 
 
+app.use(express.urlencoded({ extended: true }));
 
-app.use('/iphones', iphoneRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+app.use('/iphones', iphoneRoutes);
