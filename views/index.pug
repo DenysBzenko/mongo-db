@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Список iPhone
+    link(rel="stylesheet", href="/stylesheets/style.css") 
+  body
+    h1 Список доступних iPhone
+    if iphones.length > 0
+      ul
+        each iphone in iphones
+          li
+            h2= iphone.modelName
+            p= `Ємність пам'яті: ${iphone.storageCapacity}`
+            p= `Колір: ${iphone.color}`
+            p= `Ціна: $${iphone.price}`
+            if iphone.inStock
+              p В наявності
+            else
+              p Немає в наявності
+    else
+      p Наразі iPhone немає в наявності.

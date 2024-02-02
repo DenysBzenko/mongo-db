@@ -1,11 +1,17 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const PORT = require('./configs/port');
+const mongoose = require('./configs/mongoConnection');
+const iphoneRoutes = require('./routes/iphoneRoutes');
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+mongoose.connectDB(); 
+app.set('view engine', 'pug');
+app.set('views', './views');
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+
+
+app.use('/iphones', iphoneRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

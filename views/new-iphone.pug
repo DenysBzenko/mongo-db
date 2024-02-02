@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Додати новий iPhone
+  body
+    h1 Додати новий iPhone
+    form(method="POST", action="/iphones")
+      div
+        label(for="modelName") Модель:
+        input(type="text", id="modelName", name="modelName", required=true)
+      div
+      label(for="storageCapacity") Ємність пам'яті:
+      select(name="storageCapacity", id="storageCapacity", required=true)
+        option(value="64GB") 64GB
+        option(value="128GB") 128GB
+        option(value="256GB") 256GB
+        option(value="512GB") 512GB
+        option(value="1TB") 1TB
+      div
+        label(for="color") Колір:
+        input(type="text", id="color", name="color", required=true)
+      div
+        label(for="price") Ціна:
+        input(type="number", id="price", name="price", step="0.01", required=true)
+      div
+        label(for="inStock") В наявності:
+        input(type="checkbox", id="inStock", name="inStock")
+      div
+        button(type="submit") Додати iPhone
